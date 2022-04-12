@@ -1,6 +1,11 @@
+//Modulos importados
+import { SharedModule } from './shared/shared.module';
+import { PaisModule } from './pais/pais.module';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+//Componente principal
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -8,7 +13,9 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    PaisModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
