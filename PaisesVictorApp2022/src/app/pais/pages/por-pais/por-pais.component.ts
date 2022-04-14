@@ -5,11 +5,17 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './por-pais.component.html',
   styleUrls: ['./por-pais.component.css']
 })
-export class PorPaisComponent implements OnInit {
+export class PorPaisComponent{
+
+  termino: string = 'Holam mundo';
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  buscar():void  {
+    console.log(this.termino);
   }
 
 }
