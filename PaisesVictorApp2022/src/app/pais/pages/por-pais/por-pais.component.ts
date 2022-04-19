@@ -8,18 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PorPaisComponent{
 
-  termino: string = 'Holam mundo';
+  termino: string = '';
+  tenemosError: boolean = false;
 
   constructor(private paisService:PaisService) { }
 
   ngOnInit(): void {
   }
 
-  buscar():void  {
+  buscar(): void  {
+    this.tenemosError = false;
     console.log(this.termino);
     this.paisService.buscarPais(this.termino)
-      .subscribe(resp => {
+      .subscribe((resp) => {
         console.log(resp);
+      }, (err) => {
+       //Si tenemos error ponemos la variable a true
+        this.tenemosError = true;
       })
   }
 
