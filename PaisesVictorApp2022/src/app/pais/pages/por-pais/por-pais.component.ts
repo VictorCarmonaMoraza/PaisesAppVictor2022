@@ -20,8 +20,10 @@ export class PorPaisComponent{
     this.tenemosError = false;
     console.log(this.termino);
     this.paisService.buscarPais(this.termino)
-      .subscribe((resp) => {
-        console.log(resp);
+      .subscribe((paises) => {
+        console.log(paises);
+        //Primer pais
+        //resp[0].
       }, (err) => {
        //Si tenemos error ponemos la variable a true
         this.tenemosError = true;
