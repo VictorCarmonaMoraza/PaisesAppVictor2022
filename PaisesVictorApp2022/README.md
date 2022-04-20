@@ -1,4 +1,4 @@
-11 - Tipado de petición de RestCountries
+13 - Funcionalidad del componente PaisInputComponent
 
 
 
