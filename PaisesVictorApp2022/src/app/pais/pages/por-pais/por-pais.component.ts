@@ -34,4 +34,9 @@ export class PorPaisComponent{
       })
   }
 
+  sugerencias(termino: string) {
+    this.tenemosError = false;
+    this.buscar(termino);
+  }
+
 }

@@ -1,5 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { PaisService } from '../../services/pais.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-pais-input',
@@ -7,15 +9,37 @@ import { PaisService } from '../../services/pais.service';
   styles: ['./pais-input.component.css'
   ]
 })
-export class PaisInputComponent {
+export class PaisInputComponent implements OnInit {
 
   @Output() onEnter: EventEmitter<string> = new EventEmitter();
+  @Output() onDebounce: EventEmitter<string> = new EventEmitter();
+
+  @Input() placeholder: string = '';
   termino: string = '';
 
-  constructor(private paisService: PaisService) { }
+  //Creacion de obSERVABLE
+  debouncer: Subject<string> = new Subject();
+
+  constructor() { }
+
+  ngOnInit() {
+    this.debouncer
+      .pipe(debounceTime(300))
+      .subscribe((valor:any) => {
+      //console.log('debouncer', valor);
+        this.onDebounce.emit(valor);
+    });
+  }
 
   buscar() {
     this.onEnter.emit(this.termino);
 }
 
+  teclaPresionada() {
+    //const valor = event.target.value;
+    this.debouncer.next(this.termino);
+  }
+
 }
+
+

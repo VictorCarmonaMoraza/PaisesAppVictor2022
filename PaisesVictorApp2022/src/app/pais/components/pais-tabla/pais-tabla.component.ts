@@ -1,3 +1,4 @@
+import { Capital } from './../../interfaces/capital.interface';
 import { Country } from './../../interfaces/pais.interface';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -9,6 +10,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PaisTablaComponent implements OnInit {
 
   @Input() paisesRecibidos: Country[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
