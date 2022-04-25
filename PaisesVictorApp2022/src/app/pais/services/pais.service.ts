@@ -11,7 +11,7 @@ import { Country } from '../interfaces/pais.interface';
 export class PaisService {
 
   private apiUrlPais: string = 'https://restcountries.com/v3.1';
-  private apiUrlCapital: string = 'https://restcountries.com/v3.1';
+  private apiUrlPaisCodigo: string = 'https://restcountries.com/v3.1';
 
   constructor(private http: HttpClient) { }
 
@@ -22,7 +22,12 @@ export class PaisService {
     return this.http.get<Country[]>(url);
   }
 
-  
+  getPaisPorCodigo(id: string): Observable<Country>{
+    const url = `${this.apiUrlPais}/alpha/${id}`;
+    return this.http.get<Country>(url);
+  }
+
+
 }
 
 
