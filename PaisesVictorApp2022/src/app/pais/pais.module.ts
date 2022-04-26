@@ -13,6 +13,7 @@ import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
 import { PaisTablaComponent } from './components/pais-tabla/pais-tabla.component';
 import { PaisInputComponent } from './components/pais-input/pais-input.component';
 import { CapitalTablaComponent } from './components/capital-tabla/capital-tabla.component';
+import { RegionTablaComponent } from './components/region-tabla/region-tabla.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CapitalTablaComponent } from './components/capital-tabla/capital-tabla.
     VerPaisComponent,
     PaisTablaComponent,
     PaisInputComponent,
-    CapitalTablaComponent
+    CapitalTablaComponent,
+    RegionTablaComponent
   ],
   exports: [
     PorCapitalComponent,

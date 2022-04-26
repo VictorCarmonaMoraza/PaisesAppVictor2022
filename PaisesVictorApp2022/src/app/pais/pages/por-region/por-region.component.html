@@ -21,3 +21,9 @@
     </button>
   </div>
 </div>
+
+<div *ngIf="paises.length>0" class="row">
+  <div class="col">
+   <app-region-tabla [regionesRecibidos]="paises"></app-region-tabla>
+  </div>
+</div>
