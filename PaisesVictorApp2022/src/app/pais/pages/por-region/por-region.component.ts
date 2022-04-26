@@ -7,7 +7,9 @@ import { Component} from '@angular/core';
 })
 export class PorRegionComponent{
 
-  regiones: string[] = ['africa', 'america', 'asia', 'europe', 'oceania'];
+  regiones: string[] = ['EU','EFTA','CARICOM','PA','AU','USAN','EEU','AL','ASEAN','CAIS','CEFTA','NAFTA','SAARC'];
+
+
 
   //propiedad que se rellenara cuando pulsemos una region
   regionActiva: string = '';
@@ -16,8 +18,10 @@ export class PorRegionComponent{
 
   activarRegion(region: string) {
     this.regionActiva = region;
+  }
 
-    
-}
+  getClaseCSS(region: string): string{
+    return (region === this.regionActiva) ? 'btn btn-primary' : 'btn btn-outline-primary'
+  }
 
 }
