@@ -10,7 +10,8 @@
       </thead>
 
       <tbody>
-        <tr *ngFor="let capital of capitalesRecibidas; let i=index">
+        <tr *ngFor="let capital of capitalesRecibidas; let i=index"
+        class="animate_animated animate_fadeIn animate_faster">
           <td>{{i+1}}</td>
           <td>
             <img class="small-flag" [src]="capital.flags.png" alt=""></td>

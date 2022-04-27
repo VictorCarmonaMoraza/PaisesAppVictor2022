@@ -15,8 +15,6 @@ export class RegionService {
 
   buscarRegion(region: string): Observable<Country[]> {
 
-
-
     const url = `${this.apiUrlRegion}/regionalbloc/${region}`;
     return this.http.get<Country[]>(url, { params: this.httpParams })
       //return this.http.get<Country[]>(url, { params: this.gethttpParams() })--->Es Valido tambien
@@ -32,7 +30,6 @@ export class RegionService {
   }
 
   //Forma 2
-
   gethttpParams() {
     return new HttpParams()
       .set('fields', 'name,capital,cca3,flags,population');

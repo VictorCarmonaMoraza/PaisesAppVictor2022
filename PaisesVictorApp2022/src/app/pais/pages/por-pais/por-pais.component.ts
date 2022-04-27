@@ -7,18 +7,21 @@ import { Country } from '../../interfaces/pais.interface';
   templateUrl: './por-pais.component.html',
   styleUrls: ['./por-pais.component.css']
 })
-export class PorPaisComponent{
+export class PorPaisComponent {
 
   termino: string = '';
   tenemosError: boolean = false;
   paises: Country[] = [];
+  paisesSugeridos: Country[] = [];
+  mostrarSugerencias: boolean = false;
 
-  constructor(private paisService:PaisService) { }
+  constructor(private paisService: PaisService) { }
 
   ngOnInit(): void {
   }
 
-  buscar(argumento:string): void {
+  buscar(argumento: string): void {
+    this.mostrarSugerencias = false;
     this.tenemosError = false;
     //this.termino= argumento;
     this.paisService.buscarPais(argumento)
@@ -36,7 +39,20 @@ export class PorPaisComponent{
 
   sugerencias(termino: string) {
     this.tenemosError = false;
+    this.termino = termino;
+    this.mostrarSugerencias = true;
+    //this.buscar(termino);
+    this.paisService.buscarPais(termino)
+      .subscribe(
+        paises => this.paisesSugeridos = paises.splice(0, 3),
+        error => this.paisesSugeridos = []
+      ); //le decimos que solo queremos tres paises
+  }
+
+  buscarSugerido(termino:string) {
     this.buscar(termino);
+
+
   }
 
 }
